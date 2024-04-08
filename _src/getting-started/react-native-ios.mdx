@@ -51,7 +51,7 @@ Add all of the code below to your `ios/Podfile`:
 platform :ios, '9.0'
 
 def flipper_pods()
-  flipperkit_version = '0.152.0' # should match the version of your Flipper client app
+  flipperkit_version = '0.251.0' # should match the version of your Flipper client app
   pod 'FlipperKit', '~>' + flipperkit_version, :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitLayoutPlugin', '~>' + flipperkit_version, :configuration => 'Debug'
   pod 'FlipperKit/SKIOSNetworkPlugin', '~>' + flipperkit_version, :configuration => 'Debug'
@@ -105,6 +105,19 @@ The code below enables the following integrations:
 * Shared Preferences
 * Crash Reporter
 
+### React Native 0.68+
+
+If using React Native 0.68 or later, your AppDelegate should include
+
+```objc
+...
+#import <React/RCTAppSetupUtils.h>
+```
+
+RCTAppSetupUtils takes care of initializing Flipper and the integrations mentioned above.
+
+### React Native 0.67
+
 <Tabs defaultValue="ios" values={[{ label: 'iOS', value: 'ios'}, { label: 'Swift', value: 'swift'}]}>
 <TabItem value="ios">
 
@@ -153,7 +166,7 @@ The code below enables the following integrations:
 ```swift
 ...
 #if DEBUG
-#if FB_SONARKIT_ENABLED
+#ifdef FB_SONARKIT_ENABLED
 import FlipperKit
 #endif
 #endif
@@ -172,7 +185,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   private func initializeFlipper(with application: UIApplication) {
     #if DEBUG
-    #if FB_SONARKIT_ENABLED
+    #ifdef FB_SONARKIT_ENABLED
       let client = FlipperClient.shared()
       let layoutDescriptorMapper = SKDescriptorMapper(defaults: ())
       FlipperKitLayoutComponentKitSupport.setUpWith(layoutDescriptorMapper)
@@ -193,7 +206,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 Lastly, open the Flipper desktop app, and run `yarn ios` in your terminal.
 
-## Isues or questions
+## Issues or questions
 
 If you encounter any issues or have any questions, refer to the [Troubleshooting](troubleshooting/troubleshooting.mdx) section.
 

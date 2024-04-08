@@ -6,11 +6,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Built-in Developer Tools
 
-Flipper is built on Electron, which supports a subset of the Chrome Extensions API. This means you can debug Flipper using Chrome's developer tools.
-
-Flipper automatically installs the React devtools extension allowing you to have better insight into what is going on in your plugin.
-
-You can open the dev tools from the menu with `View` > `Toggle Developer Tools` or pressing ⌥⌘I on a Mac.
+Flipper runs in the Browser. This means you can debug Flipper using any web developer tools like Chrome's Developer Tools.
 
 In addition, to assist you with the JavaScript, the JS console displays uncaught exceptions thrown from the client plugin in response to Flipper method calls.
 
@@ -18,7 +14,7 @@ In addition, to assist you with the JavaScript, the JS console displays uncaught
 
 As an alternative to using built-in Developer Tools, you can also attach to the running Flipper instance from Google Chrome Developer Tools. Sometimes this is useful because the version of Dev Tools in Google Chrome is more recent than the embedded one, and it is possible to easily install additional extensions if required.
 
-To attach the running Flipper instance, open a new tab in Google Chrome, navigate to <http://localhost:9222> and choose 'Flipper' in the opened list, as shown in the following screenshot
+To attach the running Flipper instance, open a new tab in Google Chrome, navigate to http://localhost:9222 and choose 'Flipper' in the opened list, as shown in the following screenshot
 
 <img alt="Attach From Google Chrome" src={useBaseUrl("img/debugging-from-google-chrome.png")} />
 
@@ -42,4 +38,6 @@ Click on 'Plugin now showing' in the sidebar and see if your plugin is now liste
 
 A common error here is `Error: fsevents unavailable (this watcher can only be used on Darwin)`. This can be fixed by installing watchman (`brew install watchman`).
 
+## Print debugging
+Add console.log("test phrase %", object) and then search the developer tools log in Flipper to find what the value of the object is.
 If the plugin is listed in the desktop app, but still is not showing up in the sidebar, the mobile app is not announcing the plugin. In this case, make sure to instantiate your plugin and add it to your FlipperClient.

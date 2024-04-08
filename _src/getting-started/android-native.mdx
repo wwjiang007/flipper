@@ -24,10 +24,10 @@ repositories {
 }
 
 dependencies {
-  debugImplementation 'com.facebook.flipper:flipper:0.152.0'
-  debugImplementation 'com.facebook.soloader:soloader:0.10.1'
+  debugImplementation 'com.facebook.flipper:flipper:0.251.0'
+  debugImplementation 'com.facebook.soloader:soloader:0.10.5'
 
-  releaseImplementation 'com.facebook.flipper:flipper-noop:0.152.0'
+  releaseImplementation 'com.facebook.flipper:flipper-noop:0.251.0'
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 The `flipper-noop` package provides a limited subset of the APIs provided by the `flipper` package and does not provide any plugin stubs.
 It's recommended that you keep all Flipper instantiation code in a separate build variant to ensure it doesn't accidentally make it into your production builds.
 
-To see how to organise your Flipper initialization into debug and release variants. see thos [sample app](https://github.com/facebook/flipper/tree/main/android/sample/src).
+To see how to organise your Flipper initialization into debug and release variants, check this [sample app](https://github.com/facebook/flipper/tree/main/android/sample/src).
 
 Alternatively, have a look at the third-party [flipper-android-no-op](https://github.com/theGlenn/flipper-android-no-op) repository, which provides empty implementations for several Flipper plugins.
 :::
@@ -124,10 +124,10 @@ repositories {
 }
 
 dependencies {
-  debugImplementation 'com.facebook.flipper:flipper:0.152.1-SNAPSHOT'
-  debugImplementation 'com.facebook.soloader:soloader:0.10.1'
+  debugImplementation 'com.facebook.flipper:flipper:0.251.1-SNAPSHOT'
+  debugImplementation 'com.facebook.soloader:soloader:0.10.5'
 
-  releaseImplementation 'com.facebook.flipper:flipper-noop:0.152.1-SNAPSHOT'
+  releaseImplementation 'com.facebook.flipper:flipper-noop:0.251.1-SNAPSHOT'
 }
 ```
 
@@ -139,6 +139,6 @@ Above, the Layout Inspector plugin has been added to get you started. See the <L
 
 For examples of integrating other plugins, take a look at the sample apps in the [GitHub repo](https://github.com/facebook/flipper).
 
-## Isues or questions
+## Issues or questions
 
 If you encounter any issues or have any questions, refer to the [Troubleshooting](troubleshooting/troubleshooting.mdx) section.
